@@ -1,20 +1,38 @@
-import java.util.Scanner;
 
 public class Conta {
-  String agencia, nome_cliente;
-  int numero_conta;
-  float saldo;
+  private String agencia, nome_cliente;
+  private int numero_conta;
+  private float saldo;
 
-  public void insertAgencia() {
-    Scanner read = new Scanner(System.in);
-    System.out.print("Insira seu nome: ");
-    nome_cliente = read.next();
-    System.out.print("\nInsira sua agência: ");
-    agencia = read.next();
+  public void getConta() {
+    Conta conta = new Conta();
+    conta.agencia = this.agencia;
+    conta.nome_cliente = this.nome_cliente;
+    conta.saldo = this.saldo;
+    conta.numero_conta = this.numero_conta;
+    System.out
+        .printf(
+            "\nOlá ".concat(conta.nome_cliente)
+                + ", obrigado por criar uma conta em nosso banco, sua agência é "
+                    .concat(conta.agencia)
+                + ", conta número %d e seu saldo %.2f já está disponível para saque.",
+            conta.numero_conta, conta.saldo);
   }
 
-  public void mostrarAgencia() {
-    System.out.printf("Seu nome: %s\nSua agência: %s", nome_cliente, agencia);
+  public void insertAgencia(String agencia) {
+    this.agencia = agencia;
+  }
+
+  public void insertCliente(String cliente) {
+    this.nome_cliente = cliente;
+  }
+
+  public void insertConta(int conta) {
+    this.numero_conta = conta;
+  }
+
+  public void insertSaldo(float saldo) {
+    this.saldo = saldo;
   }
 
 }
